@@ -5,10 +5,21 @@ class son_loader extends son_base
 	
 	public function __construct()
 	{
-		$this->controller( PAGE );
+		//$this->controller( PAGE );
+
+		echo 'hi';
+
+
+
+
+
 	}
-	
-	
+
+
+
+
+
+	/*
 	public function controller( $c, $f = null)
 	{
 		$url = CONTROLLER . $c . ".php";
@@ -23,7 +34,7 @@ class son_loader extends son_base
 			$controller->$f();
 		}
 	}
-	
+	*/
 }	//	End	::	son_loader.php
 
 ?>
