@@ -210,16 +210,3 @@
 	
 	
 	//	system / db_query.php
-
-
-
-
-
-
-
-
-
-
-
-
-

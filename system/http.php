@@ -1,19 +1,16 @@
 <?php
 
-class http_requests extends db_query
+class http extends db_query
 {
 	/////////////////////////////////////////////////
-	protected $luckyChar = '!';
-	/////////////////////////////////////////////////
-	
 	protected $fullPage = "";
-	
 	
 	public function __construct()
 	{
-		if( isset( $_GET[$this->luckyChar] ) && $_GET[$this->luckyChar] != "" )
+		if( isset( $_GET[URI] ) && $_GET[URI] != "" )
 		{
-			$this->fullPage = $_GET[$this->luckyChar];
+			echo $_GET[URI];
+			$this->fullPage = $_GET[URI];
 			$this->fullPage = $this->escape( $this->fullPage );
 		}
 	}

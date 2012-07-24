@@ -1,21 +1,11 @@
 <?PHP
  	session_start();
 
+ 	ini_set('display_errors', '1');
+ 	
  	$homepage = '/';
+ 	/////////////////////////////////////////////////
+	$uri = 'url';
+	/////////////////////////////////////////////////
 
- 	$system = 'system';
-
- 	$application = 'application';
- 		$model = 'model';
- 		$view = 'view';
- 		$controller = 'controller';
-
-
- 	define('SYSTEM', $system);
-
-
- 	function __autoload( $class_name ) {
- 		require SYSTEM . '/' . $class_name . '.php';
- 	}
-
- 	new son_loader();
+ 	require_once '/system/son_boiler_plate.php';
