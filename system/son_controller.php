@@ -6,38 +6,29 @@
 		protected $MODEL;
 
 		protected $data;
+
+		public function __construct() 
+		{
+			$VIEW = array();
+			$MODEL = array();
+		}
 		
 		////////////////////////////////////////////////////	This function loads the Model
 		public function model( $name, $data = null )
 		{
-			$url = MODEL . $name . EXT;
-			
-			if ( file_exists( $url ) ) 
-			{
-				require_once( $url );
-				
-				$name  = $this->removeSub( $name );
-				if( !empty( $data ) ) 	$this->MODEL = new $name( $data );
-				else 					$this->MODEL = new $name( );
-			}
+			$this->MODEL[$name] =  !empty( $data ) ? new $name( $data ) : new $name;
 		}
 		
 		/////////////////////////////////////////////////////	This function loads the view
 		public function view( $name, $data = null )
 		{
-			$url = VIEW . $name . EXT;
-			
-			if ( file_exists( $url ) ) 
-			{	
-				new son_view( $url, $data );
-			}
+			$this->VIEW[$name] = new son_view( $url, $data );
 		}
 		
 		
-		public function call( $method, $data = null )
+		public function call( $name, $method, $data = null )
 		{
-			return $this->MODEL->call( $method, $data );
-			echo $data;
+			return $this->MODEL[$name]->call( $method, $data );
 		}
 		
 

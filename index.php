@@ -1,11 +1,21 @@
-<?PHP
+<?PHP 	require '/system/son_boiler_plate.php';
+
  	session_start();
 
  	ini_set('display_errors', '1');
  	
- 	$homepage = '/';
- 	/////////////////////////////////////////////////
-	$uri = 'url';
-	/////////////////////////////////////////////////
+ 	$homepage = 'Index';
+ 	$uri = 'url';
 
- 	require_once '/system/son_boiler_plate.php';
+ 	////////////////////////
+ 	define('HOMEPAGE', $homepage);
+ 	/////////////////////////////////////////////////
+	define('URI', $uri);
+	/////////////////////////////////////////////////
+	$directory;
+	
+	walk_dir(ROOT);
+
+	define('DIRECTORY', serialize( $directory ) );
+
+	new son_loader;

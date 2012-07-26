@@ -1,46 +1,49 @@
-<?php 	require_once 'son_boiler_functions.php';	define('URI', $uri);	define('HOMEPAGE', $homepage);
+<?php 	//require_once 'son_boiler_functions.php';	define('URI', $uri);	define('HOMEPAGE', $homepage);
 /*
  * FRAMEWORK FOLDERS ARE MAPPED TO CONSTANTS
  * FOR EASE OF USE
  */
+
+//	APPLICATION ROOT DIRECTORY
+	$root = $_SERVER['DOCUMENT_ROOT'].stripcslashes(dirname($_SERVER['PHP_SELF'])).'/';
+	define('ROOT', $root);
+
 //	FOLDER MAPPING ::
 
- 	$system = 'system';
+	function walk_dir( $path ) {
+		$dirs = scandir($path);
+		foreach( $dirs as $folder ) :
 
- 	$application = 'application';
- 		$models =  'models';
- 		$views = 'views';
- 		$controls = 'controls';
+ 			if ( $folder === '.' or $folder === '..' ) continue;
+ 			if( strpos( $folder, '.') === 0 ) continue;
 
+		    if ( is_dir( $path . '/' . $folder ) ) :
 
- 	$library = 'lib';
- 		$security = 'security';	//	Added by default
+		    	$name = strtoupper( $folder );
+				define( $name, $path . '/' . $folder );
 
- 		add_packages($library);	//	Adds additional packages
+				//echo $name . '::' . constant( $name ) . '<br />';
 
- 	$assets = 'assets';	//	Assets folder
- 		$css = 'css';
- 		$images = 'images';
- 		$javascript = 'js';
-
- 	
-//	CONSTANTS ::
-	
-
- 	define('SYSTEM', $system);
-
- 	define('APP', $application);
- 		define('MODELS', bind_path(APP, $models) );
- 		define('VIEWS', bind_path(APP, $views) );
- 		define('CONTROLS', bind_path(APP, $controls) );
+				global $directory;
+				$directory[] = constant( $name );
+				walk_dir( constant( $name ) );
+		    endif;
+		endforeach;
+	}
 
 
- 	define('ASSETS', $assets);
- 		define('CSS', bind_path(ASSETS, $css) );
- 		define('IMAGES', bind_path(ASSETS, $images) );
- 		define('JAVASCRIPT', bind_path(ASSETS, $javascript) );
-
- 	$http = new http();
- 	$page = $http->get(HOMEPAGE);
- 	
- 	new son_loader();
+	function __autoload( $name ) {
+		$dir = unserialize(DIRECTORY);
+		if( $dir ) :
+			foreach( $dir as $folder ) :
+	                $file = $name . '.php';
+	            	$path = $folder . '/' . $file;
+	                if( file_exists( $path ) ) :
+	                    require_once $path;
+	                    return;
+	                endif;
+	        endforeach;
+	        echo '<h1 style="display:block">Class :: ' . $name . ' does not exist</h1>';
+	       // require_once '404.html';
+		endif;
+	}

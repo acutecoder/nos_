@@ -1,41 +1,23 @@
 <?php
 
-class son_loader extends son_base
-{
-	
-	public function __construct()
+	class son_loader extends son_base
 	{
-		//$this->controller( PAGE );
-
-		echo 'hi';
-
-
-
-
-
-	}
-
-
-
-
-
-	/*
-	public function controller( $c, $f = null)
-	{
-		$url = CONTROLLER . $c . ".php";
-		require_once ( $url );
 		
-		$c = $this->removeSub( $c );
-		
-		$controller = new $c();
-		
-		if( !empty($f) )
-		{
-			$controller->$f();
+		public function __construct()
+		{	
+			//$c = $this->removeSub( $c );
+
+			$c = http::URI();
+
+			$this->__autoload($c);
+			//$controller = new $c();
+			
+			if( !empty($f) )
+			{
+				$controller->$f();
+			}
 		}
-	}
-	*/
-}	//	End	::	son_loader.php
 
-?>
-   
+
+
+	}	//	End	::	son_loader.php 

@@ -2,26 +2,29 @@
 
 class http extends db_query
 {
-	/////////////////////////////////////////////////
-	protected $fullPage = "";
-	
-	public function __construct()
+
+	public static function URI()
 	{
-		if( isset( $_GET[URI] ) && $_GET[URI] != "" )
+		$full_page = HOMEPAGE;
+		//if( isset( $_GET[URI] ) && $_GET[URI] != "" ) 
+		if( !empty($_GET[URI]) )
 		{
 			echo $_GET[URI];
-			$this->fullPage = $_GET[URI];
-			$this->fullPage = $this->escape( $this->fullPage );
+			$full_page = $_GET[URI];
 		}
+		return $full_page;
 	}
-	
-	public function get( $p )
+
+	public static function get($what)
 	{
-		if( $this->fullPage == "" )		return $p;
-		else  							return $this->fullPage;
+		//if( isset( $_GET[$what] ) )  return $_GET[$what] 
+		//return;
+
+		$return;
+		$return = isset( $_GET[$what] ) &&  $_GET[$what];
+		return $return;
 	}
-	
-	public function getLuckyChar(){		return $this->luckyChar;	}
+
 }
 
 
