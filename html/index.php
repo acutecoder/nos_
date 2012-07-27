@@ -7,6 +7,8 @@
  	$homepage = 'Index';
  	$uri = 'url';
 
+ //	SUFFIX
+
  	////////////////////////
  	define('HOMEPAGE', $homepage);
  	/////////////////////////////////////////////////
@@ -18,4 +20,4 @@
 
 	define('DIRECTORY', serialize( $directory ) );
 
-	new son_loader;
+	new son_router;

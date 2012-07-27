@@ -1,31 +1,6 @@
 <?php
 	class son_base
 	{
-
-		public function __autoload ( $name ) {
-			$dir = unserialize(DIRECTORY);
-
-			if( $dir ) :
-				
-				foreach( $dir as $folder ) :
-
-						echo '::' . $folder . '<br />';
-		                $file = $name . '.php';
-		            	$path = $folder . '/' . $file;
-		            	
-
-		            	///someormwoperm
-		                /*if( file_exists( $path ) ) :
-		                    require_once $path;
-		                    return;
-		                endif;*/
-		        endforeach;
-		        //echo '<h1 style="display:block">Class :: ' . $name . ' does not exist</h1>';
-		       // require_once '404.html';
-			endif;
-		}
-
-
 		public function removeSub( $str )
 		{
 			if ( strpos( $str, '/' ) !== false )
@@ -65,6 +40,11 @@
 				}
 			}
 			return $return_array;
+		}
+
+		protected function slash_path( $path ) 
+		{
+			return end(explode('\//', $path));
 		}
 		
 		

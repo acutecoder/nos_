@@ -1,16 +1,14 @@
 <?php
 
-	class son_loader extends son_base
+	class son_router extends son_base
 	{
 		
 		public function __construct()
 		{	
-			//$c = $this->removeSub( $c );
-
 			$c = http::URI();
 
-			$this->__autoload($c);
-			//$controller = new $c();
+			$c = $c .= '_control';
+			$controller = new $c();
 			
 			if( !empty($f) )
 			{

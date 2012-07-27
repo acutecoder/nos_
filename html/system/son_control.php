@@ -1,5 +1,5 @@
 <?php
-    class son_controller extends son_base
+    class son_control extends son_base
     {
 		protected $notLogged = false;
 		protected $VIEW;
@@ -40,7 +40,7 @@
 		
     }	// End Class
     
-//	::	system / son_controller.php
+//	::	system / son_control.php
 
 
 
