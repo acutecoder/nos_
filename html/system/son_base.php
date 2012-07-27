@@ -13,6 +13,8 @@
 		                $file = $name . '.php';
 		            	$path = $folder . '/' . $file;
 		            	
+
+		            	///someormwoperm
 		                /*if( file_exists( $path ) ) :
 		                    require_once $path;
 		                    return;
