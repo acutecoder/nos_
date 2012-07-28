@@ -1,13 +1,11 @@
-<?PHP 	require '/system/son_boiler_plate.php';
+<?PHP 	require '/system/a_boiler_plate.php';
 
  	session_start();
 
  	ini_set('display_errors', '1');
  	
- 	$homepage = 'Index';
- 	$uri = 'url';
-
- //	SUFFIX
+ 	$homepage 	= 'index_control';
+ 	$uri 		= 'url';
 
  	////////////////////////
  	define('HOMEPAGE', $homepage);
@@ -20,4 +18,4 @@
 
 	define('DIRECTORY', serialize( $directory ) );
 
-	new son_router;
+	new a_router;

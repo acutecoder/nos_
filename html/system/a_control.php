@@ -1,5 +1,5 @@
 <?php
-    class son_control extends son_base
+    abstract class a_control extends a_base
     {
 		protected $notLogged = false;
 		protected $VIEW;
@@ -17,12 +17,13 @@
 		public function model( $name, $data = null )
 		{
 			$this->MODEL[$name] =  !empty( $data ) ? new $name( $data ) : new $name;
+			return $this->MODEL[$name];
 		}
 		
 		/////////////////////////////////////////////////////	This function loads the view
 		public function view( $name, $data = null )
 		{
-			$this->VIEW[$name] = new son_view( $url, $data );
+			$this->VIEW[$name] = new  a_view( $name, $data );
 		}
 		
 		

@@ -4,7 +4,7 @@
  *
  */
  
- 	class ajax_control extends a_control
+ 	class ajax_controller extends son_controller
  	{
  		protected $ajax_output;
  		

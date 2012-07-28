@@ -1,6 +1,6 @@
 <?php
 
-class http extends db_query
+class http
 {
 
 	public static function URI()

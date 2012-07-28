@@ -1,5 +1,5 @@
 <?php
-	class son_base
+	class a_base
 	{
 		public function removeSub( $str )
 		{
