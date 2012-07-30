@@ -1,12 +1,9 @@
 <?PHP 	require '/system/a_boiler_plate.php';
-
- 	session_start();
-
- 	ini_set('display_errors', '1');
  	
  	$homepage 	= 'index';
  	$uri 		= 'url';
 
+	ini_set('display_errors', '1');	
  	////////////////////////
  	define('HOMEPAGE', $homepage);
  	/////////////////////////////////////////////////
@@ -19,3 +16,5 @@
 	define('DIRECTORY', serialize( $directory ) );
 
 	new a_router;
+
+	//	END :: index.php
