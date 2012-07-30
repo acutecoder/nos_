@@ -14,13 +14,15 @@
 
 			if( !empty( $path ) ) :
 
-				if( $data ) $this->DATA = $data;
+				if( !empty( $data ) ) : 
+					$this->DATA = $data;
+				endif;
 				$this->PATH = VIEWS . '/'.$path;
 
 			endif;
 		}
 
-		public function render( $extract = false) {
+		public function render( $extract = false ) {
 
 			if( !empty( $this->PATH ) ) :
 

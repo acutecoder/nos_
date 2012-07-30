@@ -6,12 +6,9 @@
 			
 			$hi = $this->model('index_model')->hi();
 			$how = index_model::how();
+			$count = array( 1,2,3 ); 
 
-			$data = array( 
-				'hi' => $hi,
-				'how' => $how,
-				'count' => array( 1,2,3 )
-			);
+			$data = compact( 'hi', 'how', 'count' );
 
 			$view = $this->view('index_view', $data)->render( true );
 		}
