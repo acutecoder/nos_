@@ -8,7 +8,7 @@
     		'.php',
     		'.html',
     		'.htm'
-    		);
+    	);
 
     	public function __construct( $path = null,  $data = null ) {
 

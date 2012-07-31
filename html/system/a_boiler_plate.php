@@ -10,7 +10,40 @@
 
 //	FOLDER MAPPING ::
 
+/////////////////////////////////////	Using readdir
 	function walk_dir( $path ) {
+
+		//if( is_dir( $path ) ) :
+
+			$handle = opendir( $path );
+
+			$dirs = readdir( $handle );
+
+			while (false !== ($folder = readdir($handle))) :
+
+	 			if ( $folder === '.' or $folder === '..' ) continue;
+	 			if( strpos( $folder, '.') === 0 ) continue;
+
+			    if ( is_dir( $path . '/' . $folder ) ) :
+
+			    	$name = strtoupper( $folder );
+					define( $name, $path . '/' . $folder );
+
+					global $directory;
+					$directory[] = constant( $name );
+					walk_dir( constant( $name ) );
+
+			    endif;
+			    
+			endwhile;
+
+			closedir( $handle );
+
+		//endif;
+	}
+	///////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////	Using Scandir
+	/*function walk_dir( $path ) {
 		$dirs = scandir($path);
 		foreach( $dirs as $folder ) :
 
@@ -29,8 +62,9 @@
 				walk_dir( constant( $name ) );
 		    endif;
 		endforeach;
-	}
+	}*/
 
+	
 
 	function __autoload( $name ) {
 		$dir = unserialize(DIRECTORY);

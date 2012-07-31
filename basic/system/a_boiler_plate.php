@@ -11,11 +11,13 @@
 
 	function walk_dir( $path ) {
 
-		$dirs = scandir($path);
+		$handle = opendir( $path );
 
-		foreach( $dirs as $folder ) :
+		$dirs = readdir( $handle );
 
- 			if ( $folder === '.' or $folder === '..' ) continue;
+		while( false !== ( $folder = readdir( $handle ) ) ) :
+
+ 			if( $folder === '.' or $folder === '..' ) continue;
  			if( strpos( $folder, '.') === 0 ) continue;
 
 		    if ( is_dir( $path . '/' . $folder ) ) :
@@ -29,7 +31,9 @@
 
 		    endif;
 
-		endforeach;
+		endwhile;
+
+		closedir( $handle );
 	}
 
 
