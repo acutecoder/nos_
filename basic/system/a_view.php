@@ -3,7 +3,6 @@
 		
     	protected $PATH;
     	protected $DATA;
-
     	protected $EXTS = array(
     		'.php',
     		'.html',
@@ -15,8 +14,11 @@
 			if( !empty( $path ) ) :
 
 				if( !empty( $data ) ) : 
+
 					$this->DATA = $data;
+
 				endif;
+
 				$this->PATH = VIEWS . '/'.$path;
 
 			endif;

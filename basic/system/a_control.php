@@ -4,14 +4,12 @@
 		protected $VIEW;
 		protected $MODEL;
 
-
 		public function model( $name, $data = null ) {
 
 			if( empty( $this->MODEL ) ) $this->MODEL = array();
 			$this->MODEL[$name] = new $name( $data );
 			return $this->MODEL[$name];
 		}
-
 
 		public function view( $name, $data = null ) {
 

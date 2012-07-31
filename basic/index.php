@@ -3,12 +3,10 @@
  	$homepage 	= 'index';
  	$uri 		= 'url';
 
-	ini_set('display_errors', '1');	
- 	////////////////////////
  	define('HOMEPAGE', $homepage);
- 	/////////////////////////////////////////////////
+
 	define('URI', $uri);
-	/////////////////////////////////////////////////
+
 	$directory;
 	
 	walk_dir(ROOT);

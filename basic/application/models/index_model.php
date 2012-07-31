@@ -10,3 +10,4 @@
 			return 'How Are You Doing?';
 		}
 	}
+	//	END :: application / models / index_model.php
