@@ -5,10 +5,10 @@
     	protected $DATA;
 
     	protected $EXTS = array(
-    		'.php',
-    		'.html',
-    		'.htm'
-    		);
+			'.php',
+			'.html',
+			'.htm'
+		);
 
     	public function __construct( $path = null,  $data = null ) {
 
