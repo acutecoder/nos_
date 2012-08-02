@@ -17,6 +17,7 @@
 
 			if( empty( $this->VIEW ) ) $this->VIEW = array();
 			$this->VIEW[$name] = new  a_view( $name, $data );
+			return $this->VIEW[$name];
 		}
 
     }

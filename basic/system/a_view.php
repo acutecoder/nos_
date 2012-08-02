@@ -30,8 +30,13 @@
 
 					if( file_exists( $this->PATH . $ext ) ) :
 
-						$data = $this->DATA;
-						if( $extract ) extract( $data );
+						if( !empty( $this->DATA ) ) :
+
+							$data = $this->DATA;
+							if( $extract ) extract( $data );
+
+						endif;
+
 						include $this->PATH . $ext;
 						return;
 

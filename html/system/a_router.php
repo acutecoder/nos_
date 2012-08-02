@@ -1,5 +1,5 @@
 <?php
-	class a_router extends a_base {
+	class a_router {
 		
 		public function __construct() {
 

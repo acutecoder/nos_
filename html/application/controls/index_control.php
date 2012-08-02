@@ -4,11 +4,13 @@
 	
 		public function __construct() {
 			
-			$message_one = $this->model('index_model')->hi();
-			$message_two = test_model::hmm();
+			$hi = $this->model('index_model')->hi();
+			$how = index_model::how();
+			$count = array( 1,2,3 ); 
 
-			$data = array( $message_one, $message_two );
+			$data = compact( 'hi', 'how', 'count' );
 
-			$view = $this->view('index_view', $data);
+			$view = $this->view('index_view', $data)->render( true );
 		}
 	}
+	//	END :: application / controls / index_control.php
