@@ -1,17 +1,25 @@
 <?php
-	class db extends a_base
-	{
-		protected $user_name	= "root";
-		protected $pass_word	= "abc123";
-		protected $database		= "hssc";
-		protected $server		= "127.0.0.1";
-		protected $db_handle;
-		protected $db_found;
-	}
-	
-	########	INHERITED FUNCTIONS
-	
-	#	public function removeSub( $str )
 
-	//	::	gateway / db.php
-	
+	class db {
+
+		protected $TYPE		=	'mysql';
+		protected $HOST 	=	'localhost';
+		protected $DB_NAME 	=	'test';
+
+		protected $UID		=	'sam';
+		protected $PWD		=	'sam';
+
+
+
+		protected $PDO;
+
+		public function __construct () {
+			$this->PDO =  new PDO( $this->TYPE  . ':host=' . $HOST . ';dbname=' . $DB_NAME, $UID, $PWD );
+		}
+
+
+
+
+
+
+	}
