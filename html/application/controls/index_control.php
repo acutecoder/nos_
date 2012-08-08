@@ -5,10 +5,10 @@
 		public function __construct() {
 			
 			$hi = $this->model('index_model')->hi();
-			$how = index_model::how();
-			$count = array( 1,2,3 ); 
+			#$how = index_model::how();
+			//$count = array( 1,2,3 ); 
 
-			$data = compact( 'hi', 'how', 'count' );
+			$data = compact( 'hi' );
 
 			$view = $this->view('index_view', $data)->render( true );
 		}

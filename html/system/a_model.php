@@ -1,5 +1,5 @@
 <?php
-	abstract class a_model {
+	abstract class a_model extends db{
 
 		##	Useful methods for a model
 		/******************************************/
