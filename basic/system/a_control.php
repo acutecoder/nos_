@@ -19,6 +19,5 @@
 			$this->VIEW[$name] = new  a_view( $name, $data );
 			return $this->VIEW[$name];
 		}
-
     }
 	// END	::	system / a_control.php
